@@ -3,6 +3,7 @@ import React from 'react';
 import Expenses from './components/Expenses/Expenses';
 import Card from "./components/UI/Card";
 import './components/Expenses/Expenses.css'
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
   const expenses = [
@@ -31,9 +32,12 @@ function App() {
     },
   ];
   return (
-    <Card className="expenses">
-      <Expenses expenses={expenses} />
-    </Card>
+    <div>
+      <NewExpense />
+      <Card className="expenses">
+        <Expenses expenses={expenses} />
+      </Card>
+    </div>
   );
 }
 
