@@ -1,3 +1,5 @@
+import React from 'react';
+
 import ExpenseItem from "./ExpenseItem";
 
 function Expenses(props) {
