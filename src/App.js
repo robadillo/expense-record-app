@@ -4,6 +4,7 @@ import Expenses from './components/Expenses/Expenses';
 import Card from "./components/UI/Card";
 import './components/Expenses/Expenses.css'
 import NewExpense from './components/NewExpense/NewExpense';
+import ExpensesFilter from './components/Expenses/ExpensesFilter';
 
 function App() {
   const expensesMock = [
@@ -32,15 +33,22 @@ function App() {
     },
   ];
   const [expenses, setExpenses] = useState(expensesMock);
+  const [filteredYear, setFilteredYear] = useState('2020');
 
   const addExpenseHandler = expense => {
     setExpenses([...expenses, expense]);
+  };
+
+  const changeFilterHandler = (year) => {
+    console.log({year})
+    setFilteredYear(year);
   };
 
   return (
     <div>
       <NewExpense onAddExpenses={addExpenseHandler} />
       <Card className="expenses">
+        <ExpensesFilter onChangeFilter={changeFilterHandler} selected={filteredYear}/>
         <Expenses expenses={expenses}/>
       </Card>
     </div>
